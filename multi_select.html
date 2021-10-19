@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
+    <style>
+      .custom__dropdown li {
+        list-style: none;
+      }
+      .custom__dropdown li input {
+        margin-left: 10px;
+      }
+      .custom__dropdown li {
+        display: block;
+        padding-top: 10px;
+      }
+      .custom__dropdown li .optgroup {
+        font-weight: bold;
+      }
+      .custom__dropdown li .optgroup__options {
+        padding-left: 20px;
+      }
+      .custom__dropdown .optgroup {
+        color: #007bff;
+      }
+      .custom__dropdown .dropdown-menu {
+        max-height: 500px;
+        overflow-y: auto;
+        scrollbar-width: 5px;
+        padding: 20px;
+      }
+      .custom__dropdown label,
+      .custom__dropdown input {
+        cursor: pointer;
+      }
+      .custom__dropdown label {
+        user-select: none;
+        margin-left: -5px;
+        padding-left: 5px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>With Vanilla JavaScript</h1>
+
+    <div class="dropdown custom__dropdown">
+      <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown button</button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <form action="/action_page.php">
+          <li>
+            <input type="checkbox" class="optgroup" name="" value="undefined" id="optgroup-1" />
+            <label for="optgroup-1" class="optgroup"> Våning BV</label><br />
+            <div class="optgroup__options">
+              <input type="checkbox" name="" value="2" id="Enkelrum" />
+              <label for="Enkelrum">Enkelrum</label><br />
+
+              <input type="checkbox" name="" value="136" id="Zonmall-2" />
+              <label for="Zonmall-2">Zonmall 2</label><br />
+            </div>
+          </li>
+
+          <li>
+            <input type="checkbox" class="optgroup" name="" value="undefined" id="optgroup-2" />
+            <label for="optgroup-2" class="optgroup">Våning test</label><br />
+            <div class="optgroup__options">
+              <input type="checkbox" name="" value="46" id="Zonmall-1" />
+              <label for="Zonmall-1">Zonmall 1</label><br />
+
+              <input type="checkbox" name="" value="136" id="Zonmall-2" />
+              <label for="Zonmall-2">Zonmall 2</label><br />
+
+              <input type="checkbox" name="" value="12" id="Lobby" />
+              <label for="Lobby">Lobby</label><br />
+            </div>
+          </li>
+
+          <li>
+            <input type="checkbox" class="optgroup" name="" value="undefined" id="optgroup-3" />
+            <label for="optgroup-3" class="optgroup">Våning 1</label><br />
+            <div class="optgroup__options">
+              <input type="checkbox" name="" value="46" id="Zonmall-1" />
+              <label for="Zonmall-1">Zonmall 1</label><br />
+
+              <input type="checkbox" name="" value="136" id="Zonmall-2" />
+              <label for="Zonmall-2">Zonmall 2</label><br />
+
+              <input type="checkbox" name="" value="10" id="Dubbelrum" />
+              <label for="Dubbelrum">Dubbelrum</label><br />
+            </div>
+          </li>
+
+          <li>
+            <input type="checkbox" class="optgroup" name="" value="undefined" id="optgroup-4" />
+            <label for="optgroup-4" class="optgroup">Våning 1</label><br />
+            <div class="optgroup__options">
+              <input type="checkbox" name="" value="46" id="Zonmall-1" />
+              <label for="Zonmall-1">Zonmall 1</label><br />
+            </div>
+          </li>
+
+          <li>
+            <input type="checkbox" class="optgroup" name="" value="undefined" id="optgroup-5" />
+            <label for="optgroup-5" class="optgroup">Våning 4</label><br />
+            <div class="optgroup__options">
+              <input type="checkbox" name="" value="51" id="Restaurang" />
+              <label for="Restaurang">Restaurang</label><br />
+
+              <input type="checkbox" name="" value="46" id="Zonmall-1" />
+              <label for="Zonmall-1">Zonmall 1</label><br />
+            </div>
+          </li>
+        </form>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    <script>
+      const checkboxInput = document.querySelectorAll("input");
+      for (i = 0; i < checkboxInput.length; i++) {
+        checkboxInput[i].addEventListener("change", (event) => {
+          const value = event.currentTarget.value;
+          const matchingInput = document.querySelectorAll('input[value="' + value + '"]');
+
+          if (event.currentTarget.checked) {
+            // const value = event.currentTarget.value;
+            // const matchingInput = document.querySelectorAll('input[value="' + value + '"]');
+            for (j = 0; j < matchingInput.length; j++) {
+              matchingInput[j].checked = true;
+            }
+          } else {
+            // const value = event.currentTarget.value;
+            // const matchingInput = document.querySelectorAll('input[value="' + value + '"]');
+            for (j = 0; j < matchingInput.length; j++) {
+              matchingInput[j].checked = false;
+            }
+          }
+          //code for optgroup click
+          if (event.currentTarget.classList.contains("optgroup")) {
+            if (event.currentTarget.checked) {
+              const siblingInput = event.currentTarget.parentNode.children[3];
+              const sib = siblingInput.getElementsByTagName("input");
+              for (i = 0; i < sib.length; i++) {
+                sib[i].checked = true;
+              }
+            } else {
+              const siblingInput = event.currentTarget.parentNode.children[3];
+              const sib = siblingInput.getElementsByTagName("input");
+              for (i = 0; i < sib.length; i++) {
+                sib[i].checked = false;
+              }
+            }
+          }
+          //if all elements in a optgroup are checked mark optgroup checked
+          const optgroup = document.querySelectorAll(".custom__dropdown li div");
+          const optionalGroup = document.querySelectorAll(".custom__dropdown li");
+          for (i = 0; i < optgroup.length; i++) {
+            const inputBoxes = optgroup[i].getElementsByTagName("input");
+            let allSelected = true;
+            for (j = 0; j < inputBoxes.length; j++) {
+              const isSelected = inputBoxes[j].checked;
+              allSelected = allSelected && isSelected;
+            }
+            if (allSelected) {
+              optionalGroup[i].getElementsByTagName("input")[0].checked = true;
+            } else {
+              optionalGroup[i].getElementsByTagName("input")[0].checked = false;
+            }
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
