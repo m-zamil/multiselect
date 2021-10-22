@@ -17,18 +17,13 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
     <style>
-      .custom__dropdown li {
-        list-style: none;
-      }
-
-      .custom__dropdown li {
-        display: block;
+      .custom__dropdown .custom__option {
         padding-top: 10px;
       }
-      .custom__dropdown li .optgroup {
+      .custom__dropdown .custom__option .optgroup {
         font-weight: bold;
       }
-      .custom__dropdown li .optgroup__options {
+      .custom__dropdown .custom__option .optgroup__options {
         padding-left: 20px;
       }
       .custom__dropdown .optgroup {
@@ -59,7 +54,7 @@
       <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown button</button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <form action="https://jkorpela.fi/cgi-bin/echo.cgi" method="POST" id="myform">
-          <li>
+          <div class="custom__option">
             <input type="checkbox" class="optgroup" name="A" value="group 1" id="optgroup-1" />
             <label for="optgroup-1" class="optgroup"> Våning BV</label><br />
             <div class="optgroup__options">
@@ -69,9 +64,9 @@
               <input type="checkbox" name="Ab" value="136" id="Zonmall-2" />
               <label for="Zonmall-2">Zonmall 2</label><br />
             </div>
-          </li>
+          </div>
 
-          <li>
+          <div class="custom__option">
             <input type="checkbox" class="optgroup" name="B" value="group 2" id="optgroup-2" />
             <label for="optgroup-2" class="optgroup">Våning test</label><br />
             <div class="optgroup__options">
@@ -84,9 +79,9 @@
               <input type="checkbox" name="Bc" value="12" id="Lobby" />
               <label for="Lobby">Lobby</label><br />
             </div>
-          </li>
+          </div>
 
-          <li>
+          <div class="custom__option">
             <input type="checkbox" class="optgroup" name="C" value="group 3" id="optgroup-3" />
             <label for="optgroup-3" class="optgroup">Våning 1</label><br />
             <div class="optgroup__options">
@@ -99,18 +94,18 @@
               <input type="checkbox" name="Cc" value="10" id="Dubbelrum" />
               <label for="Dubbelrum">Dubbelrum</label><br />
             </div>
-          </li>
+          </div>
 
-          <li>
+          <div class="custom__option">
             <input type="checkbox" class="optgroup" name="D" value="group 4" id="optgroup-4" />
             <label for="optgroup-4" class="optgroup">Våning 1</label><br />
             <div class="optgroup__options">
               <input type="checkbox" name="Da" value="46" id="Zonmall-1" />
               <label for="Zonmall-1">Zonmall 1</label><br />
             </div>
-          </li>
+          </div>
 
-          <li>
+          <div class="custom__option">
             <input type="checkbox" class="optgroup" name="E" value="group 5" id="optgroup-5" />
             <label for="optgroup-5" class="optgroup">Våning 4</label><br />
             <div class="optgroup__options">
@@ -120,7 +115,7 @@
               <input type="checkbox" name="Eb" value="46" id="Zonmall-1" />
               <label for="Zonmall-1">Zonmall 1</label><br />
             </div>
-          </li>
+          </div>
         </form>
       </div>
       <button type="submit" class="btn btn-secondary" form="myform">Submit</button>
@@ -173,7 +168,7 @@
             }
           }
           //if all options in an optgroup are checked make optgroup checked, else not checked
-          const optionalGroup = document.querySelectorAll(".custom__dropdown li");
+          const optionalGroup = document.querySelectorAll(".custom__dropdown .custom__option");
           const optgroup = document.querySelectorAll(".optgroup__options");
           for (i = 0; i < optgroup.length; i++) {
             const inputBoxes = optgroup[i].getElementsByTagName("input");
